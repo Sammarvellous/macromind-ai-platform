@@ -1,9 +1,16 @@
-function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { EvidenceEngine } from './pages/EvidenceEngine';
+
+export function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p>Start prompting (or editing) to see magic happen :)</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<EvidenceEngine />} />
+          <Route path="/evidence" element={<EvidenceEngine />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
